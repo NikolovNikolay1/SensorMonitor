@@ -1,0 +1,12 @@
+Link_with_PC_Speeds_last: '2000000'
+Link_with_PC_Types_last: USB
+Meas_ADC_last:
+  A0: true
+  A1: true
+  A2: true
+  A3: true
+  A4: true
+  A5: false
+  ADC1015: true
+Meas_Freq_last: '1000'
+Type_Controller_last: Arduino Uno

@@ -1,0 +1,182 @@
+# file of settings SensorMonitor
+# https://pyneng.readthedocs.io/ru/latest/book/17_serialization/yaml.html
+
+Type_Controllers:
+- 'Arduino Uno'
+- 'Arduino nano'
+
+Link_with_PC_Speeds:
+- 9600
+- 2000000
+
+Type_Controller_last:
+- Arduino Uno
+
+Link_with_PC_Types_last:
+- USB
+ 
+Link_with_PC_Speeds_last:
+- 2000000
+
+Meas_Freq_last:
+- 1000
+
+Visual_Effects:
+ total_points: 2000
+ d_point: 2
+ delay_draw_fig: 0.2
+ 
+Meas_ADC_last:
+ A0: False
+ A1: False
+ A2: False
+ A3: False
+ A4: False
+ A5: False
+ ADC1015: True
+ AHT25_x38: True
+ ADC1015_diff_temp: False
+
+A0:
+ name_tag: 'ADC_0_contr'
+ name_code: 1 # 00000001
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''
+ Signals:
+  A0:
+   type: int
+   fun_calibrovki: ''
+   unit: 'a.u.'
+   alias: 'A0'
+   sub_cod: 1 
+A1:
+ name_tag: 'ADC_1_contr'
+ name_code: 2 # 00000010
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: '' 
+ Signals:
+  A1:
+   type: int
+   fun_calibrovki: ''
+   unit: 'a.u.'
+   alias: 'A1'
+   sub_cod: 1
+ 
+A2:
+ name_tag: 'ADC_2_contr'
+ name_code: 3 # 00000011
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''  
+ Signals:
+  A2:
+   type: int
+   fun_calibrovki: ''
+   unit: 'abstr.'
+   alias: 'A2'
+   sub_cod: 1   
+A3:
+ name_tag: 'ADC_3_contr'
+ name_code: 4 # 00000100
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''
+ Signals:
+  A3:
+   type: int
+   fun_calibrovki: ''
+   unit: 'abstr.'
+   alias: 'A3'
+   sub_cod: 1
+A4:
+ name_tag: 'ADC_4_contr'
+ name_code: 5 # 00000101
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''
+ Signals:
+  A4:
+   type: int
+   fun_calibrovki: ''
+   unit: 'abstr.'
+   alias: 'A4'
+   sub_cod: 1   
+A5:
+ name_tag: 'ADC_5_contr'
+ name_code: 6 # 00000110
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: '' 
+ Signals:
+  A5:
+   type: int
+   fun_calibrovki: ''
+   unit: 'abstr.'
+   alias: 'A5'
+   sub_cod: 1   
+
+ADC1015:
+ name_tag: 'ADC1015'
+ name_code: 7 # 00000111
+ Base_struct: 'Base_struct_float_diff_temperature'
+ fun_calibrovki: ''
+ Signals:
+  Temperature_0:
+   type: float
+   fun_calibrovki: 'fun_calibrovki_sensor_T0'
+   unit: '0C'
+   alias: 'T0' 
+   sub_cod: 1
+   filtr_impuls_able_y: True
+  Temperature_1:
+   type: float
+   fun_calibrovki: 'fun_calibrovki_sensor_T1'
+   unit: '0C'
+   alias: 'T1'
+   sub_cod: 2
+   filtr_impuls_able_y: True
+  I_R_0:
+   type: float
+   fun_calibrovki: 'fun_calibrovki_sensor_R1'
+   unit: 'A'
+   alias: 'Ir0' 
+   sub_cod: 3
+   filtr_impuls_able_y: False
+  I_R_1:
+   type: float
+   fun_calibrovki: 'fun_calibrovki_sensor_R1'
+   unit: 'A'
+   alias: 'Ir1' 
+   sub_cod: 4   
+   filtr_impuls_able_y: False
+   
+AHT25_x38:
+ name_tag: 'AHT25_x38'
+ name_code: 8 # 00001000
+ Base_struct: 'Base_struct_float_humidity_temper'
+ fun_calibrovki: ''
+ Signals:
+  Temperature:
+   type: float
+   fun_calibrovki: 'fun_calibrovki_sensor_AHT25_x38_T'
+   unit: '0C'
+   alias: 'absolut_T0' 
+   sub_cod: 1
+   filtr_impuls_able_y: True
+  Temperature_1:
+   type: float
+   fun_calibrovki: 'fun_calibrovki_sensor_AHT25_x38_H'
+   unit: '%'
+   alias: 'Humidity'
+   sub_cod: 2
+   filtr_impuls_able_y: True 
+   
+ADC1015_diff_temp:
+ name_tag: 'ADC1015_diff_temp'
+ name_code: 9 # 00001001
+ Base_struct: 'Base_struct_float_diff_temperature_one'
+ fun_calibrovki: ''
+ Signals:
+  Temperature_0:
+   type: float
+   fun_calibrovki: 'fun_calibrovki_sensor_T0'
+   unit: '0C'
+   alias: 'T0' 
+   filtr_impuls_able_y: True
+   

@@ -1,0 +1,73 @@
+# file of settings SensorMonitor
+# https://pyneng.readthedocs.io/ru/latest/book/17_serialization/yaml.html
+
+Type_Controllers:
+- 'Arduino Uno'
+- 'Arduino nano'
+
+Link_with_PC_Speeds:
+- 9600
+- 2000000
+
+Type_Controller_last:
+- Arduino Uno
+
+Link_with_PC_Types_last:
+- USB
+ 
+Link_with_PC_Speeds_last:
+- 2000000
+
+Meas_Freq_last:
+- 1000
+
+Meas_ADC_last:
+ A0: True
+ A1: True
+ A2: True
+ A3: True
+ A4: True
+ A5: False
+ ADC1015: True
+
+A0:
+ name_tag: 'ADC_0_contr'
+ name_code: 1 # 00000001
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''
+ 
+A1:
+ name_tag: 'ADC_1_contr'
+ name_code: 2 # 00000010
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: '' 
+ 
+A2:
+ name_tag: 'ADC_2_contr'
+ name_code: 3 # 00000011
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''  
+ 
+A3:
+ name_tag: 'ADC_3_contr'
+ name_code: 4 # 00000100
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''
+
+A4:
+ name_tag: 'ADC_4_contr'
+ name_code: 5 # 00000101
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''
+ 
+A5:
+ name_tag: 'ADC_5_contr'
+ name_code: 6 # 00000110
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: '' 
+ 
+ADC1015:
+ name_tag: 'ADC1015'
+ name_code: 7 # 00000111
+ Base_struct: 'Base_struct_float'
+ fun_calibrovki: '' 

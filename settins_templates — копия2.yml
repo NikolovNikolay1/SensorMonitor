@@ -1,0 +1,127 @@
+# file of settings SensorMonitor
+# https://pyneng.readthedocs.io/ru/latest/book/17_serialization/yaml.html
+
+Type_Controllers:
+- 'Arduino Uno'
+- 'Arduino nano'
+
+Link_with_PC_Speeds:
+- 9600
+- 2000000
+
+Type_Controller_last:
+- Arduino Uno
+
+Link_with_PC_Types_last:
+- USB
+ 
+Link_with_PC_Speeds_last:
+- 2000000
+
+Meas_Freq_last:
+- 1000
+
+Meas_ADC_last:
+ A0: True
+ A1: True
+ A2: True
+ A3: True
+ A4: True
+ A5: False
+ ADC1015: True
+
+A0:
+ name_tag: 'ADC_0_contr'
+ name_code: 1 # 00000001
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''
+  Signals:
+   A0:
+    type: int
+    fun_calibrovki: ''
+    unit:'abstr.'
+    alias: 'A0'
+ 
+A1:
+ name_tag: 'ADC_1_contr'
+ name_code: 2 # 00000010
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: '' 
+  Signals:
+   A1:
+    type: int
+    fun_calibrovki: ''
+    unit:'abstr.'
+    alias: 'A1'
+ 
+A2:
+ name_tag: 'ADC_2_contr'
+ name_code: 3 # 00000011
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''  
+  Signals:
+   A2:
+    type: int
+    fun_calibrovki: ''
+    unit:'abstr.'
+    alias: 'A2' 
+A3:
+ name_tag: 'ADC_3_contr'
+ name_code: 4 # 00000100
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''
+  Signals:
+   A3:
+    type: int
+    fun_calibrovki: ''
+    unit:'abstr.'
+    alias: 'A3'
+A4:
+ name_tag: 'ADC_4_contr'
+ name_code: 5 # 00000101
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: ''
+  Signals:
+   A4:
+    type: int
+    fun_calibrovki: ''
+    unit:'abstr.'
+    alias: 'A4' 
+A5:
+ name_tag: 'ADC_5_contr'
+ name_code: 6 # 00000110
+ Base_struct: 'Base_struct_unsigned_int'
+ fun_calibrovki: '' 
+  Signals:
+   A5:
+    type: int
+    fun_calibrovki: ''
+    unit:'abstr.'
+    alias: 'A5' 
+
+ADC1015:
+ name_tag: 'ADC1015'
+ name_code: 7 # 00000111
+ Base_struct: 'Base_struct_float'
+ fun_calibrovki: ''
+  Signals:
+   Temperature_0:
+    type: float
+    fun_calibrovki: ''
+    unit:'0C'
+    alias: 'T0' 
+   Temperature_1:
+    type: float
+    fun_calibrovki: ''
+    unit:'0C'
+    alias: 'T1'
+   I_R_0:
+    type: float
+    fun_calibrovki: ''
+    unit:'A'
+    alias: 'Ir0' 
+   I_R_1:
+    type: float
+    fun_calibrovki: ''
+    unit:'A'
+    alias: 'Ir1'       
