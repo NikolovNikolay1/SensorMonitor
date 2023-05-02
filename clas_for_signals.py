@@ -331,26 +331,32 @@ class Signals_general:
     def filtr_impuls_able_y(self, signal__one):
         L = len(signal__one.y_arr)
         w = signal__one.windows_descret_count
-        if L > w + 2:
+        if L > w + 2: # если длина массива больше окна +2
             try:
                 std = np.std(signal__one.y_arr[L - w:L - 1])
                 signal__one.std_y_wind = np.append(signal__one.std_y_wind, std)
-                if signal__one.filtr_impuls_able_y == True:
+                if (signal__one.filtr_impuls_able_y == True) and std>0:
                     mean = np.mean(signal__one.y_arr[L - w:L - 1])
-                    d=np.max([std , abs(7*mean+0.1*mean)])
+                    #d=np.max([std , abs(7*mean+0.1*mean)])
+                    d=10*std
+                    start_ind = L-w-1
                     for i in range(1,w, 1):
-                        if signal__one.y_arr[L - i -1] > mean + d or signal__one.y_arr[L - i - 1] < mean - d:
+                       # if abs(std/mean*100)>70:
+                       #     fl=True
+                        if (signal__one.y_arr[start_ind + i]) > (mean + 2*mean) or (signal__one.y_arr[start_ind + i]) <(mean - 2*mean):
 
-                            if abs(signal__one.y_arr[L - i]) > abs(signal__one.y_arr[L - i - 1] + d) and abs(
-                                    signal__one.y_arr[L - i]) > abs(signal__one.y_arr[L - i + 1] + d) or abs(signal__one.y_arr[
-                                L - i]) < abs(signal__one.y_arr[L - i - 1] - d) and abs(
-                                    signal__one.y_arr[L - i]) < abs(signal__one.y_arr[L - i + 1] - d):
+                            if abs(signal__one.y_arr[start_ind + i]) > abs(signal__one.y_arr[start_ind + i - 1] + d) and abs(
+                                    signal__one.y_arr[start_ind + i]) > abs(signal__one.y_arr[start_ind + i + 1] + d) or abs(signal__one.y_arr[
+                                start_ind + i]) < abs(signal__one.y_arr[start_ind + i - 1] - d) and abs(
+                                    signal__one.y_arr[start_ind + i]) < abs(signal__one.y_arr[start_ind + i + 1] - d):
                                 print("i=" + str(i))
                                 print("y=" + str(signal__one.y_arr[L - i]))
-                                signal__one.y_arr[L - i] = (signal__one.y_arr[L - i - 1] + signal__one.y_arr[L - i + 1]) / 2
-                        if signal__one.time_arr[i+1]>signal__one.time_arr[i+2] or signal__one.time_arr[i+1]<signal__one.time_arr[i] :
-                            signal__one.time_arr[i + 1]=(signal__one.time_arr[i]+signal__one.time_arr[i+2])/2
+                                signal__one.y_arr[start_ind + i] = (signal__one.y_arr[start_ind + i - 1] + signal__one.y_arr[start_ind + i + 1]) / 2
 
+                        if signal__one.time_arr[start_ind + i]>signal__one.time_arr[start_ind + i+1] or signal__one.time_arr[start_ind + i]<signal__one.time_arr[start_ind + i-1] :
+                            signal__one.time_arr[start_ind + i]=(signal__one.time_arr[i]+signal__one.time_arr[i+2])/2
+                std = np.std(signal__one.y_arr[L - w:L - 1])
+                signal__one.std_y_wind = np.append(signal__one.std_y_wind, std)
             except:
                 print("err filtr_impuls_able_y")
         return signal__one
